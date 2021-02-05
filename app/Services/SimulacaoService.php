@@ -84,7 +84,6 @@ class SimulacaoService
                 'errors' => "Convenios não cadastrados: " . $diff,
             ];
         }
-
     }
 
     private function upperCaseParametros(array $parametros)
