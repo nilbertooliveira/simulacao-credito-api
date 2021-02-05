@@ -9,5 +9,5 @@
 	`docker-compose up -d`
 
 ## Utilização das APIS
-[Documentação Postaman](https://www.getpostman.com/collections/256f18e27c13afeed675)
+[Documentação Postman](https://www.getpostman.com/collections/256f18e27c13afeed675)
 
