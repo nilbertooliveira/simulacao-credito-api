@@ -9,4 +9,4 @@
 	`docker-compose up -d`
 
 ## Utilização das APIS
-1. 
+`https://www.getpostman.com/collections/256f18e27c13afeed675`
