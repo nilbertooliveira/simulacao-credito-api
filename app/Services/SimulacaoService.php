@@ -48,9 +48,10 @@ class SimulacaoService
 
     public function calculaSimulacao(Collection $taxas, array $parametros)
     {
+        $valorEmprestimo = (float)$parametros['valor_emprestimo'];
         foreach ($taxas as $key => $instituicao) {
             foreach ($instituicao as $i => $inst) {
-                $valorParcela = ($parametros['valor_emprestimo'] * $inst->taxaJuros) / $inst->parcelas;
+                $valorParcela = ($valorEmprestimo * $inst->taxaJuros) / $inst->parcelas;
                 $taxas[$key][$i]->valor_parcela = round($valorParcela, 2);
             }
         }
@@ -68,7 +69,7 @@ class SimulacaoService
         }
         $instParam = collect($parametros['instituicoes']);
         $instituicoes = $this->repository->getIntituicoesSemChaves();
-        $diff = $instParam->diff($instituicoes);
+        $diff = $instParam->diff($instituicoes)->values();
 
         if (count($diff) > 0) {
             return [
@@ -77,7 +78,7 @@ class SimulacaoService
         }
         $convParam = collect($parametros['convenios']);
         $convenios = $this->repository->getConveniosSemChaves();
-        $diff = $convParam->diff($convenios);
+        $diff = $convParam->diff($convenios)->values();
 
         if (count($diff) > 0) {
             return [
